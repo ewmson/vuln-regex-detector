@@ -26,10 +26,10 @@ if ($os ne "linux") {
 }
 
 # Ubuntu or bust
-my $osRelease = `cat /etc/os-release 2>/dev/null`;
-if ($osRelease !~ m/NAME="Ubuntu"/i) {
-  die "Error, only Ubuntu is supported. Your machine is:\n$osRelease\n";
-}
+# my $osRelease = `cat /etc/os-release 2>/dev/null`;
+# if ($osRelease !~ m/NAME="Ubuntu"/i) {
+#   die "Error, only Ubuntu is supported. Your machine is:\n$osRelease\n";
+# }
 
 &log("Configuring repo");
 
