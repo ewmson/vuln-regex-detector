@@ -193,9 +193,9 @@ sub configureWeideman {
   chdir "$ENV{VULN_REGEX_DETECTOR_ROOT}/src/detect/src/detectors" or die "Error, chdir failed: $!\n";
 
   my $dir = "weideman-RegexStaticAnalysis";
-  my $file = "$dir/RegexStaticAnalysis.jar";
+  my $file = "$dir/target/regex-static-analysis-1.0-SNAPSHOT.jar";
 
-  &chkcmd("cd $dir; make exejar; cd -");
+  &chkcmd("cd $dir; mvn package; cd -");
   if (not -f $file) {
     die "Error, configuring weideman failed: could not find $file\n";
   }

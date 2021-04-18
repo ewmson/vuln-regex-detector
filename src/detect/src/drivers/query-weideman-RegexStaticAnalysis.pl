@@ -67,7 +67,7 @@ print STDERR "CLEANUP: $tmpFile\n"; # If we time out, the parent can clean up fo
 #   --simple                          Full is exponential in the size of the regexp. Too pricey.
 #                                       --simple: reports an imprecise upper bound.
 #                                       --full: strengthens the upper bound, possibly identifying false positives.
-my $classpath = "'$regexStaticAnalysisDir/bin:$regexStaticAnalysisDir/lib/gson-2.8.2.jar'";
+my $classpath = "'$regexStaticAnalysisDir/target/dependency-jars/*:$regexStaticAnalysisDir/target/regex-static-analysis-1.0-SNAPSHOT.jar'";
 my $jvmNoDumpFlags = ""; # TODO Is there a portable way to do this? "-XXnoJrDump -XXdumpSize:none"; # Disable crash files (generated if ulimit on memory exceeded).
 my $cmdString = "java $jvmNoDumpFlags -cp $classpath driver.Main --if=$tmpFile --test-eda-exploit-string=false --ida=true --timeout=0 --simple";
 my ($rc, $out) = &cmd("$cmdString 2>&1");
